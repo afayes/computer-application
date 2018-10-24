@@ -1,0 +1,6 @@
+allowedOrigins: http://localhost:4200
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

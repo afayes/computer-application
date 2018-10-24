@@ -1,0 +1,74 @@
+<h1>Add Computer {{ computer.name }}</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <form (ngSubmit)="save()" #form="ngForm">
+        <div class="form-group row">
+          <label for="name" class="col-sm-2 col-form-label">Name *</label>
+          <div class="col-sm-10">
+            <input class="form-control" id="name" [(ngModel)]="computer.name" required #name="ngModel"
+                   name="name" [class.is-invalid]="name.invalid && (name.dirty || name.touched)">
+            <div *ngIf="name.invalid && name.errors.required && (name.dirty || name.touched)"
+                 class="invalid-feedback">
+              Name is required
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="name" class="col-sm-2 col-form-label">IP *</label>
+          <div class="col-sm-10">
+            <input class="form-control" id="ip" [(ngModel)]="computer.ip" required #ip="ngModel"
+                   name="ip" [class.is-invalid]="ip.invalid && (ip.dirty || ip.touched)">
+            <div *ngIf="ip.invalid && ip.errors.required && (ip.dirty || ip.touched)" class="invalid-feedback">
+              IP is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="mac" class="col-sm-2 col-form-label">MAC *</label>
+          <div class="col-sm-10">
+            <input class="form-control" id="mac" [(ngModel)]="computer.mac" required #mac="ngModel"
+                   name="mac" [class.is-invalid]="mac.invalid && (mac.dirty || mac.touched)">
+            <div *ngIf="mac.invalid && mac.errors.required && (mac.dirty || mac.touched)" class="invalid-feedback">
+              MAC is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="dateAdded" class="col-sm-2 col-form-label">Date Added *</label>
+          <div class="col-sm-10">
+            <input class="form-control" id="dateAdded" [(ngModel)]="computer.dateAddedText" required
+                   pattern="(0?[1-9]|[12][0-9]|3[01])[- /.](0?[1-9]|1[012])[- /.](19|20)\d\d" #dateAdded="ngModel"
+                   name="dateAdded" [class.is-invalid]="dateAdded.invalid && (dateAdded.dirty || dateAdded.touched)"
+                   placeholder="e.g. 15/04/2018">
+            <div *ngIf="dateAdded.invalid && (dateAdded.dirty || dateAdded.touched)" class="invalid-feedback">
+              <span *ngIf="dateAdded.errors.required">Date Added is required</span>
+              <span *ngIf="dateAdded.errors.pattern">Date must be of the format dd/mm/yyyy e.g. 15/04/2018</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="location" class="col-sm-2 col-form-label">Location</label>
+          <div class="col-sm-10">
+            <input class="form-control" id="location" [(ngModel)]="computer.location"
+                   name="location">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-sm-10">
+            <button type="submit" [disabled]="!form.form.valid" class="btn"
+                    [ngClass]="(form.form.valid)?'btn-primary':'btn-light'">Submit
+            </button>
+            <button style="margin-left: 10px;" class="btn btn-secondary" (click)="cancel()">Cancel</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

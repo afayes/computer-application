@@ -1,0 +1,19 @@
+<h1>
+  Computers
+  <button type="button" class="btn btn-primary" (click)="goToAddComputerPage()">Add Computer</button>
+</h1>
+
+
+<div class="container">
+  <div class="row">
+    <div *ngIf="computers.length < 1;else computerListing">
+      At the moment there are no computers
+    </div>
+    <ng-template #computerListing>
+      <div class="computer-detail col-sm-4" *ngFor="let computer of computers">
+        <computer-detail [computer]="computer" (deleted)="onComputerDelete($event)"></computer-detail>
+      </div>
+    </ng-template>
+
+  </div>
+</div>

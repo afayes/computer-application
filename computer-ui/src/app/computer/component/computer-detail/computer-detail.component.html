@@ -1,0 +1,15 @@
+<div class="card computer-detail">
+  <div class="card-body">
+    <h5 class="card-title">{{computer.name}}</h5>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">IP: {{computer.ip}}</li>
+      <li class="list-group-item">MAC: {{computer.mac}}</li>
+      <li class="list-group-item">Date Added: {{computer.dateAdded | date: 'dd/MM/yyyy'}}</li>
+      <li class="list-group-item">Location: {{computer.location}}</li>
+    </ul>
+  </div>
+  <div class="card-body">
+    <button style="margin-right: 10px;" (click)="editComputer()" type="button" class="btn btn-primary">Edit</button>
+    <button (click)="deleteComputer()" type="button" class="btn btn-danger">Delete</button>
+  </div>
+</div>
