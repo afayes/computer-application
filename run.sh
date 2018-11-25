@@ -9,14 +9,14 @@ build() {
 
 build_service() {
     mvn clean install -Dmaven.test.skip=true -pl computer-service || exit 1
-    docker build -t afayes/computer-service computer-service || exit 1
+    docker build -t afayes/computer-service-k8s computer-service || exit 1
 }
 
 build_ui() {
     cd computer-ui
     npm install
     ng build --prod || exit 1
-    docker build -t afayes/computer-ui .
+    docker build -t afayes/computer-ui-k8s .
 }
 
 start() {
@@ -32,8 +32,8 @@ run() {
 }
 
 push() {
-    docker push afayes/computer-service
-    docker push afayes/computer-ui
+    docker push afayes/computer-service-k8s
+    docker push afayes/computer-ui-k8s
 }
 
 logs() {
