@@ -1,4 +1,4 @@
-export const SERVICE_URL = "http://www.abulfayes.com/computers";
+export const SERVICE_URL = "/api/computers";
 export const DATE_FORMAT = "DD/MM/YYYY";
 export const PATH_COMPUTERS = 'computers';
 export const PATH_COMPUTERS_LISTING = PATH_COMPUTERS + '/listing';
